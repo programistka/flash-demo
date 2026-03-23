@@ -2,33 +2,43 @@
 
 Two Next.js projects for comparison — one with manual `localStorage` (with flash), the other with `next-themes` (without flash).
 
-## How to run
+## Live demos
 
-### 1. localStorage version (port 3000) — WITH FLASH
+| Version | URL |
+|---|---|
+| localStorage — WITH FLASH | https://programistka.github.io/flash-demo/with-localstorage/ |
+| next-themes — WITHOUT FLASH | https://programistka.github.io/flash-demo/with-next-themes/ |
 
-Live demo: https://programistka.github.io/flash-demo/with-localstorage/
+## How to run locally
+
+### Quick start (both apps at once)
 
 ```bash
+# First time — install dependencies in each project
+cd with-localstorage && pnpm install && cd ..
+cd with-next-themes && pnpm install && cd ..
+
+# Build and start both
+./start.sh --build
+
+# Or just start if already built
+./start.sh
+```
+
+- http://localhost:3000 — localStorage (flash)
+- http://localhost:3001 — next-themes (no flash)
+
+### Manual start
+
+```bash
+# localStorage version (port 3000)
 cd with-localstorage
-pnpm install
-pnpm build
-pnpm start
-```
+pnpm install && pnpm build && pnpm start
 
-Open http://localhost:3000
-
-### 2. next-themes version (port 3001) — WITHOUT FLASH
-
-Live demo: https://programistka.github.io/flash-demo/with-next-themes/
-
-```bash
+# next-themes version (port 3001)
 cd with-next-themes
-pnpm install
-pnpm build
-pnpm start
+pnpm install && pnpm build && pnpm start
 ```
-
-Open http://localhost:3001
 
 ## How to see the flash
 
