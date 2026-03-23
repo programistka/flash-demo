@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
@@ -13,9 +13,9 @@ export default function ThemeToggle() {
   return (
     <button
       className="theme-toggle"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
-      {theme === 'dark' ? '☀️ Light theme' : '🌙 Dark theme'}
+      {resolvedTheme === 'dark' ? '☀️ Light theme' : '🌙 Dark theme'}
     </button>
   )
 }

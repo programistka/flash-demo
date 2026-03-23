@@ -43,7 +43,9 @@ pnpm install && pnpm build && pnpm start
 ## How to see the flash
 
 1. Open both pages side by side
-2. On both, click "🌙 Dark theme"
+2. Enable dark theme on both:
+   - On port 3000: click "🌙 Dark theme"
+   - On port 3001: click "🌙 Dark theme" (or skip — it respects your OS dark mode automatically)
 3. Refresh both pages (Ctrl+R)
 4. On port 3000 you will see a brief white background flash — that is the flash
 5. On port 3001 the page will immediately load in dark theme
