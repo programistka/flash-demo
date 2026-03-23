@@ -6,6 +6,8 @@ Two Next.js projects for comparison — one with manual `localStorage` (with fla
 
 ### 1. localStorage version (port 3000) — WITH FLASH
 
+Live demo: https://programistka.github.io/flash-demo/with-localstorage/
+
 ```bash
 cd with-localstorage
 pnpm install
@@ -16,6 +18,8 @@ pnpm start
 Open http://localhost:3000
 
 ### 2. next-themes version (port 3001) — WITHOUT FLASH
+
+Live demo: https://programistka.github.io/flash-demo/with-next-themes/
 
 ```bash
 cd with-next-themes
