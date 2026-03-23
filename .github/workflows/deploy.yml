@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: |
+            with-localstorage/pnpm-lock.yaml
+            with-next-themes/pnpm-lock.yaml
+
+      - name: Build with-localstorage
+        working-directory: with-localstorage
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}/with-localstorage
+        run: pnpm install && pnpm build
+
+      - name: Build with-next-themes
+        working-directory: with-next-themes
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}/with-next-themes
+        run: pnpm install && pnpm build
+
+      - name: Assemble deploy directory
+        run: |
+          mkdir -p deploy/with-localstorage
+          mkdir -p deploy/with-next-themes
+          cp -r with-localstorage/out/. deploy/with-localstorage/
+          cp -r with-next-themes/out/. deploy/with-next-themes/
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
