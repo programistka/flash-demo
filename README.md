@@ -2,6 +2,8 @@
 
 Two Next.js projects for comparison — one with manual `localStorage` (with flash), the other with `next-themes` (without flash).
 
+![Screenshot](lib/next-themes.png)
+
 This demo accompanies the blog post: [next-themes vs localStorage — dlaczego nie warto wynajdywać koła na nowo](https://programistka.com/next-themes-vs-localstorage-dlaczego-nie-warto-wynajdywac-kola-na-nowo-🎨/)
 
 ## Live demos
